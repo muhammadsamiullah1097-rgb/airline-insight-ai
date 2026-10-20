@@ -9,6 +9,31 @@ Built with **scikit-learn**, **FastAPI** and a single **HTML/CSS/JavaScript** pa
 
 ---
 
+## 🌐 Live Demo (no installation needed)
+
+**https://muhammadsamiullah1097-rgb.github.io/airline-insight-ai-web/**
+
+The same project, running live in your browser — both predictors work with no
+server and nothing to install. (The live page uses the same trained models;
+their learned numbers are written into the page as JavaScript, and its answers
+match this backend's — verified.)
+
+## ⚡ Quick Start (download → run in 3 commands)
+
+The dataset is **already included** in this repo (`data/train.csv` + `data/test.csv`).
+
+```bash
+pip install -r requirements.txt   # 1. install the libraries
+python train_models.py            # 2. train the models (makes models/*.pkl)
+uvicorn app.main:app --reload     # 3. start the server
+```
+
+Then open **http://127.0.0.1:8000**. Downloaded this repo as a ZIP? Extract it
+and follow the same 3 commands — the CSV files are already inside `data/`, so
+the system is fully workable right away. Full details in "How to Run" below.
+
+---
+
 ## 📊 Dataset
 
 [Airline Passenger Satisfaction — Kaggle](https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction)
@@ -119,6 +144,15 @@ Response:
 Returns the model scores (R², MAE, accuracy, ROC-AUC) shown in the website header.
 
 ---
+
+## 🛠️ Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| `ModuleNotFoundError: No module named ...` | Run `pip install -r requirements.txt` again |
+| `FileNotFoundError: models/regression_model.pkl` | The `.pkl` models are binary, so they are not stored in this GitHub repo — run `python train_models.py` once; it recreates them from the included CSV files in a few seconds |
+| Port 8000 already in use | Run `uvicorn app.main:app --port 8001` and open http://127.0.0.1:8001 |
+| Page opens but predictions fail | The FastAPI server must be running — the frontend sends the forms to it |
 
 ## ⚠️ Limitations (honest notes)
 
