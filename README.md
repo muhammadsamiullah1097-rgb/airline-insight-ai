@@ -16,7 +16,7 @@ Built with **scikit-learn**, **FastAPI** and a single **HTML/CSS/JavaScript** pa
 - 129,880 passenger records (103,904 train + 25,976 test, the split given with the dataset)
 - Each record has passenger details, flight distance, delays and 14 service ratings (0–5), plus the final `satisfaction` label.
 
-> The CSV files are **not** included in this repo (they are large). Download `train.csv` and `test.csv` from the Kaggle link above and place them in the `data/` folder.
+> The CSV files **are included** in this repo (in the `data/` folder), so the project runs right after downloading — no separate dataset download needed.
 
 ---
 
@@ -41,7 +41,7 @@ Both models are trained in `train_models.py` and saved with **joblib** into the 
 airline-insight-ai/
 ├── train_models.py          # Trains both models, prints R2 + accuracy, saves them with joblib
 ├── requirements.txt         # Python libraries needed
-├── data/                    # Put train.csv and test.csv here (from Kaggle)
+├── data/                    # train.csv + test.csv (included in this repo)
 ├── models/
 │   ├── regression_model.pkl       # Saved Linear Regression model
 │   ├── classification_model.pkl   # Saved Logistic Regression model
@@ -62,7 +62,7 @@ pip install -r requirements.txt
 ```
 
 ### 2. Train the models (first time / fresh clone)
-Put `train.csv` and `test.csv` in `data/` (see the Dataset section above), then:
+The dataset files are already in `data/` (included in this repo), so just run:
 ```bash
 python train_models.py
 ```
